@@ -1,0 +1,4 @@
+include bbs/schema.sql
+graft bbs/static
+graft bbs/templates
+global-exclude *.pyc
