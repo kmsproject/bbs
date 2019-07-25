@@ -1,0 +1,18 @@
+# bbs .gitignore
+
+# .ディレクトリを無視
+.*/
+
+# Flask
+*.pyc
+__pycache__/
+
+instance/
+
+.pytest_cache/
+.coverage
+htmlcov/
+
+dist/
+build/
+*.egg-info/
