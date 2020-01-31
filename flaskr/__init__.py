@@ -29,14 +29,17 @@ def create_app(test_config=None):
     def hello():
         return 'Hello, World!'
 
-    # register the database commands
+
+    # DBの初期化
     from . import db
     db.init_app(app)
 
-    # apply the blueprints to the app
+    # 認証(Blueprint)
     from . import auth
-    from . import blog
     app.register_blueprint(auth.bp)
+
+    # blog.py
+    from . import blog
     app.register_blueprint(blog.bp)
     app.add_url_rule('/', endpoint='index')
 
