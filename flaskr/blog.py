@@ -3,11 +3,10 @@ from flask import (
 )
 from werkzeug.exceptions import abort
 
-from bbs.auth import login_required
-from bbs.db import get_db
+from flaskr.auth import login_required
+from flaskr.db import get_db
 
 bp = Blueprint('blog', __name__)
-
 
 @bp.route('/')
 def index():
@@ -17,6 +16,7 @@ def index():
         ' FROM post p JOIN user u ON p.author_id = u.id'
         ' ORDER BY created DESC'
     ).fetchall()
+
     return render_template('blog/index.html', posts=posts)
 
 
@@ -46,6 +46,7 @@ def create():
     return render_template('blog/create.html')
 
 
+# ログインチェック？
 def get_post(id, check_author=True):
     post = get_db().execute(
         'SELECT p.id, title, body, created, author_id, username'
