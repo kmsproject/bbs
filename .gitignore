@@ -1,6 +1,7 @@
 # bbs .gitignore
 
 # .ディレクトリを無視
+venv/
 .*/
 
 # Flask
